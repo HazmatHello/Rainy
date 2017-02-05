@@ -19,6 +19,7 @@ public class PlayerController : NetworkBehaviour
 
         transform.Rotate(0, 0, 0);
         transform.Translate(x, y, 0);
+<<<<<<< HEAD
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -41,5 +42,8 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         Debug.Log("Player 1");
+=======
+        Debug.Log("moving");
+>>>>>>> parent of 8d1453b... Update
     }
 }
