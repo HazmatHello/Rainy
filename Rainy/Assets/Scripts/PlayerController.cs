@@ -4,6 +4,8 @@ using UnityEngine.Networking;
 public class PlayerController : NetworkBehaviour
 {
     public float maxSpeed = 10f;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
 
     void Update()
     {
@@ -17,6 +19,23 @@ public class PlayerController : NetworkBehaviour
 
         transform.Rotate(0, 0, 0);
         transform.Translate(x, y, 0);
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            bulletSpawn.position,
+            bulletSpawn.rotation);
+
+        bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.forward * 6;
+
+        Destroy(bullet, 2.0f);
     }
 
     public override void OnStartLocalPlayer()
