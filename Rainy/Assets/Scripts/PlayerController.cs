@@ -17,6 +17,10 @@ public class PlayerController : NetworkBehaviour
 
         transform.Rotate(0, 0, 0);
         transform.Translate(x, y, 0);
-        Debug.Log("moving");
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        Debug.Log("Player 1");
     }
 }
